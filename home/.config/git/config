@@ -1,0 +1,15 @@
+[user]
+	name = ndwarshuis
+	email = natedwarshuis@gmail.com
+[core]
+	editor = emacs
+[merge]
+	tool = meld
+[diff "exif"]
+	textconv = exiftool
+[diff "word"]
+	textconv = catdoc
+[diff "odt"]
+    textconv = odt2txt
+[color]
+	ui = true

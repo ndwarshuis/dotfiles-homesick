@@ -1,0 +1,59 @@
+#--------------------#
+# XDG Overrides
+#--------------------#
+# base
+XDG_CONFIG_HOME			DEFAULT=@{HOME}/.config
+XDG_CACHE_HOME			DEFAULT=@{HOME}/.cache
+XDG_DATA_HOME			DEFAULT=@{HOME}/.local/share
+XDG_RUNTIME_DIR			DEFAULT=/run/user/1000
+
+# auth
+ICEAUTHORITY	 	   	DEFAULT=${XDG_RUNTIME_DIR}/ICEauthority
+XAUTHORITY				DEFAULT=${XDG_RUNTIME_DIR}/Xauthority
+
+# gtk
+GTK_RC_FILES			DEFAULT=${XDG_CONFIG_HOME}/gtk-1.0/gtkrc
+GTK2_RC_FILES			DEFAULT=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc
+
+# less
+LESSKEY					DEFAULT=${XDG_CONFIG_HOME}/less/lesskey
+LESSHISTFILE			DEFAULT=-
+
+# mu
+MU_HOME					DEFAULT=${XDG_DATA_HOME}/mu
+
+# nvidia
+CUDA_CACHE_PATH			DEFAULT=${XDG_CACHE_HOME}/nv
+
+# readline
+INPUTRC					DEFAULT=${XDG_CONFIG_HOME}/readline/inputrc
+
+# ruby
+GEM_HOME				DEFAULT=${XDG_DATA_HOME}/gem
+GEM_SPEC_CACHE			DEFAULT=${XDG_CACHE_HOME}/gem
+
+# urxvt
+RXVT_SOCKET				DEFAULT=${XDG_RUNTIME_DIR}/urxvt/urxvtd-node
+
+# xinit
+XINITRC					DEFAULT=${XDG_CONFIG_HOME}/X11/xinitrc
+
+# (z)sh
+HISTFILE				DEFAULT=${XDG_DATA_HOME}/zsh/history
+HISTSIZE				DEFAULT=1000000
+SAVEHIST				DEFAULT=1000000
+ZDOTDIR					DEFAULT=${XDG_CONFIG_HOME}/zsh
+
+#--------------------#
+# Path
+#--------------------#
+PATH					DEFAULT=${PATH}:@{HOME}/.local/bin
+
+#--------------------#
+# Applications
+#--------------------#
+GDK_USE_XFT				DEFAULT=1
+QT_XFT					DEFAULT=true
+SAL_USE_VCLPLUGIN		DEFAULT=gtk
+QT_QPA_PLATFORMTHEME	DEFAULT=qt5ct
+R_ENVIRON_USER			DEFAULT=${XDG_CONFIG_HOME}/r/.Renviron
