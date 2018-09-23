@@ -1,0 +1,42 @@
+#!/bin/sh
+
+userresources="$XDG_CONFIG_HOME/X11/xresources"
+
+if [ -f "$userresources" ]; then
+    xrdb -merge "$userresources"
+fi
+
+start_xkb() {
+	setxkbmap hypermode
+	xcape-layer &
+}
+
+start_services() {
+	greenclip daemon &
+	pgrep redshift &> /dev/null || redshift &> /dev/null &
+	dunst &
+	# urxvtd -q -f -o
+}
+
+start_panel() {
+	xmobar &
+	stalonetray
+}
+
+start_ui() {
+	conky -d
+	compton --config .config/compton.conf -b
+	feh --no-fehbg --bg-fill ~/.local/share/backgrounds/wallpaper.png &
+	xsetroot -cursor_name left_ptr
+}
+
+start_xmonad() {
+	start_xkb
+	start_services
+	start_ui
+	exec xmonad
+}
+
+# start_xmonad
+exec cinnamon-session
+
