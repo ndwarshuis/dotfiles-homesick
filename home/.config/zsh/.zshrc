@@ -140,6 +140,7 @@ exists R && alias R='R --quiet'
 
 # xdg conformity
 exists arm && alias arm='arm -c "$XDG_CONFIG_HOME"/arm/armrc'
+exists gpg2 && alias gpg2='gpg2 -c "$XDG_CONFIG_HOME"/gnupg'
 exists mbsync && alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 exists nvidia-settings && alias nvidia-settings='nvidia-settings -c "$XDG_CONFIG_HOME"/nvidia/settings'
 exists svn && alias svn='svn --config-dir "$XDG_CONFIG_HOME"/subversion'
