@@ -50,6 +50,9 @@ PYTHONSTARTUP           DEFAULT=${XDG_CONFIG_HOME}/python/startup.py
 GEM_HOME                DEFAULT=${XDG_DATA_HOME}/gem
 GEM_SPEC_CACHE          DEFAULT=${XDG_CACHE_HOME}/gem
 
+# texlive
+TEXMFHOME               DEFAULT=${XDG_CONFIG_HOME}/texmf
+
 # urxvt
 RXVT_SOCKET             DEFAULT=${XDG_RUNTIME_DIR}/urxvt/urxvtd-node
 
