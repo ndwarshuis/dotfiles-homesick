@@ -2,69 +2,76 @@
 # XDG Overrides
 #--------------------#
 # base
-XDG_CONFIG_HOME			DEFAULT=@{HOME}/.config
-XDG_CACHE_HOME			DEFAULT=@{HOME}/.cache
-XDG_DATA_HOME			DEFAULT=@{HOME}/.local/share
-XDG_RUNTIME_DIR			DEFAULT=/run/user/1000
+XDG_CONFIG_HOME         DEFAULT=@{HOME}/.config
+XDG_CACHE_HOME          DEFAULT=@{HOME}/.cache
+XDG_DATA_HOME           DEFAULT=@{HOME}/.local/share
+XDG_RUNTIME_DIR         DEFAULT=/run/user/1000
 
 # auth
-ICEAUTHORITY	 	   	DEFAULT=${XDG_RUNTIME_DIR}/ICEauthority
-XAUTHORITY				DEFAULT=${XDG_RUNTIME_DIR}/Xauthority
+ICEAUTHORITY            DEFAULT=${XDG_RUNTIME_DIR}/ICEauthority
+XAUTHORITY              DEFAULT=${XDG_RUNTIME_DIR}/Xauthority
+
+# aspell
+# ASPELL_CONF           DEFAULT=${XDG_CONFIG_HOME}/aspell.conf
 
 # cabal
-CABAL_CONFIG			DEFAULT=${XDG_CONFIG_HOME}/cabal/config
+CABAL_CONFIG            DEFAULT=${XDG_CONFIG_HOME}/cabal/config
 
 # gnupg
-GNUPGHOME				DEFAULT=${XDG_CONFIG_HOME}/gnupg
+GNUPGHOME               DEFAULT=${XDG_CONFIG_HOME}/gnupg
 
 # gtk1/2
-GTK2_RC_FILES			DEFAULT=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc
+GTK2_RC_FILES           DEFAULT=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc
 
 # java
-_JAVA_OPTIONS			DEFAULT=-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java/.userPrefs
+_JAVA_OPTIONS           DEFAULT=-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java/.userPrefs
 
 # less
-LESSKEY					DEFAULT=${XDG_CONFIG_HOME}/less/lesskey
-LESSHISTFILE			DEFAULT=-
+LESSKEY                 DEFAULT=${XDG_CONFIG_HOME}/less/lesskey
+LESSHISTFILE            DEFAULT=-
 
 # mu
-MU_HOME					DEFAULT=${XDG_DATA_HOME}/mu
+MU_HOME                 DEFAULT=${XDG_DATA_HOME}/mu
+
+# nodejs
+NPM_CONFIG_USERCONFIG   DEFAULT=${XDG_CONFIG_HOME}/npm/npmrc
+NODE_REPL_HISTORY       DEFAULT=${XDG_DATA_HOME}/npm/node_repl.log
 
 # nvidia
-CUDA_CACHE_PATH			DEFAULT=${XDG_CACHE_HOME}/nv
+CUDA_CACHE_PATH         DEFAULT=${XDG_CACHE_HOME}/nv
 
 # readline
-INPUTRC					DEFAULT=${XDG_CONFIG_HOME}/readline/inputrc
+INPUTRC                 DEFAULT=${XDG_CONFIG_HOME}/readline/inputrc
 
 # python
-PYTHONSTARTUP			DEFAULT=${XDG_CONFIG_HOME}/python/startup.py
+PYTHONSTARTUP           DEFAULT=${XDG_CONFIG_HOME}/python/startup.py
 
 # ruby
-GEM_HOME				DEFAULT=${XDG_DATA_HOME}/gem
-GEM_SPEC_CACHE			DEFAULT=${XDG_CACHE_HOME}/gem
+GEM_HOME                DEFAULT=${XDG_DATA_HOME}/gem
+GEM_SPEC_CACHE          DEFAULT=${XDG_CACHE_HOME}/gem
 
 # urxvt
-RXVT_SOCKET				DEFAULT=${XDG_RUNTIME_DIR}/urxvt/urxvtd-node
+RXVT_SOCKET             DEFAULT=${XDG_RUNTIME_DIR}/urxvt/urxvtd-node
 
 # xinit
-XINITRC					DEFAULT=${XDG_CONFIG_HOME}/X11/xinitrc
+XINITRC                 DEFAULT=${XDG_CONFIG_HOME}/X11/xinitrc
 
 # (z)sh
-HISTFILE				DEFAULT=${XDG_DATA_HOME}/zsh/history.log
-HISTSIZE				DEFAULT=1000000
-SAVEHIST				DEFAULT=1000000
-ZDOTDIR					DEFAULT=${XDG_CONFIG_HOME}/zsh
+HISTFILE                DEFAULT=${XDG_DATA_HOME}/zsh/history.log
+HISTSIZE                DEFAULT=1000000
+SAVEHIST                DEFAULT=1000000
+ZDOTDIR                 DEFAULT=${XDG_CONFIG_HOME}/zsh
 
 #--------------------#
 # Path
 #--------------------#
-PATH					DEFAULT=${PATH}:@{HOME}/.local/bin
+PATH                    DEFAULT=${PATH}:@{HOME}/.local/bin
 
 #--------------------#
 # Applications
 #--------------------#
-GDK_USE_XFT				DEFAULT=1
-QT_XFT					DEFAULT=true
-SAL_USE_VCLPLUGIN		DEFAULT=gtk
-QT_QPA_PLATFORMTHEME	DEFAULT=qt5ct
-R_ENVIRON_USER			DEFAULT=${XDG_CONFIG_HOME}/r/.Renviron
+GDK_USE_XFT             DEFAULT=1
+QT_XFT                  DEFAULT=true
+SAL_USE_VCLPLUGIN       DEFAULT=gtk
+QT_QPA_PLATFORMTHEME    DEFAULT=qt5ct
+R_ENVIRON_USER          DEFAULT=${XDG_CONFIG_HOME}/r/.Renviron
