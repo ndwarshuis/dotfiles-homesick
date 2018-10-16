@@ -94,7 +94,7 @@ extra-prog-path: $prefix/bin
 -- index-state:
 -- root-cmd:
 symlink-bindir: /home/ndwar/.local/share/cabal/bin
-build-summary: $logs-dir/build.log
+-- build-summary: $logs-dir/build.log
 -- build-log:
 remote-build-reporting: anonymous
 -- report-planning-failure: False
