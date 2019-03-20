@@ -34,6 +34,19 @@ for hlpath in zsh/plugins/zsh-syntax-highlighting zsh-syntax-highlighting; do
 done
 
 ## --------------------------------------------------
+# history search
+## --------------------------------------------------
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '\eOA' up-line-or-beginning-search
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\eOB' down-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
+
+## --------------------------------------------------
 # enable x11 clipboard sync
 ## --------------------------------------------------
 # https://unix.stackexchange.com/questions/25765/pasting-from-clipboard-to-vi-enabled-zsh-or-bash-shell
