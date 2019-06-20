@@ -1,7 +1,9 @@
 ! when in doubt, look here: /usr/share/X11/app-defaults/
 ! or look at man pages for resources
 
-! Xft Fonts
+!!!
+! FONTS
+!!!
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -10,12 +12,56 @@ Xft.antialias: 1
 Xft.rgba: rgb
 Xft.dpi: 96
 
-! URXVT CONFIG
+!!!
+! COLORS
+!!!
+
+! Black + DarkGrey
+*color0:        #000000
+*color8:        #666666
+
+! DarkRed + Red
+*color1:        #dd2020
+*color9:        #ff4040
+
+! DarkGreen + Green
+*color2:        #20cc20
+*color10:       #30ff30
+
+! DarkYellow + Yellow
+*color3:        #cccc20
+*color11:       #ffff30
+
+! DarkBlue + Blue
+*color4:        #0070ff
+*color12:       #00a0ff
+
+! DarkMagenta + Magenta
+*color5:        #cc20cc
+*color13:       #ff60ff
+
+! DarkCyan + Cyan
+*color6:        #20cccc
+*color14:       #30ffff
+
+! LightGrey + White
+*color7:        #aaaaaa
+*color15:       #ffffff
+
+! no blinkencursors
+*.cursorBlink:  False
+*.cursorColor:  10
+
+*.colorUL:		11
+
+!!!
+! URXVT
+!!!
 
 ! look and feel
 URxvt.depth: 		    	32
 URxvt.background: 	    	[85]#000000
-URxvt.foreground: 	    	#ffffff
+URxvt.foreground: 	    	15
 URxvt.font: 		    	xft:DejaVu Sans Mono:size=11:autohint=false
 URxvt.boldfont:		    	xft:DejaVu Sans Mono Bold:size=11:autohint=false
 URxvt.fontItalic:	    	xft:DejaVu Sans Mono Oblique:size=11:autohint=false
@@ -35,32 +81,24 @@ URxvt.iso14755:         	False
 URxvt.iso14755_52:			False
 
 ! save lots of history
-URxvt.saveLines:        	4096
+URxvt.saveLines:        	8192
 
-! no blinkencursors
-URxvt.cursorBlink:      	False
-URxvt.cursorColor:      	#00ff00
-
-! fade stuff when not in focus
+! fade when not in focus
 URxvt.fading:		    	50
 URxvt.fadeColor:			Grey25
 
 ! restore alt key behavior
 URxvt.meta8:            	False
 
-! no scroll bar (use the mouse wheel)    
+! scrollbars are lame
 URxvt.scrollBar:        	False
 
-! perl scripts
-!URxvt.perl-lib: $XDG_DATA_HOME/share/urxvt/perl
-
-! launch some nice apps
+! launch some nice extensions
 URxvt.perl-ext-common:  	default,matcher,tabbedex,keyboard-select,selection-to-clipboard
 
 ! matcher config (URL stuff)
 URxvt.url-launcher:     	/bin/firefox
 URxvt.matcher.button:   	1
-URxvt.colorUL:				#ffff00
 
 ! keyboard-select config (select text and search)
 URxvt.keysym.M-Escape:	 		 perl:keyboard-select:activate
@@ -81,8 +119,3 @@ URxvt.keysym.Control-Shift-Left: 	perl:tabbedex:move_tab_left
 URxvt.keysym.Control-Shift-Right: 	perl:tabbedex:move_tab_right
 URxvt.keysym.Control-Shift-R: 		perl:tabbedex:rename_tab
 URxvt.tabbed.no-tabbedex-keys: 		true
-
-! fix ctrl+arrow to skip words (cinnamon blocks this?)
-! we can probably get rid of this...vi bindings are better :)
-URxvt.keysym.Control-Left:	\033[1;5D
-URxvt.keysym.Control-Right:	\033[1;5C
