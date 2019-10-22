@@ -41,6 +41,13 @@
         % This restriction helps ensure that all standard styles are identical.
         % The file btxbst.doc has the documentation for this style.
 
+% this is a modified version of the plainyr style which
+% a) reverse sorts by year
+% b) uses initials for names
+% c) does not include pages, volume, or edition
+% d) has support for the jabbrv package
+% e) has \FormatName support on the author list (allowing me to bold me name in resume)
+
 ENTRY
   { address
     author
@@ -53,6 +60,7 @@ ENTRY
     journal
     key
     month
+    nationality
     note
     number
     organization
@@ -221,7 +229,7 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=
+    { "\FormatName{" s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ * "}" * 't :=
       nameptr #1 >
         { namesleft #1 >
             { ", " * t * }
@@ -568,6 +576,29 @@ FUNCTION {format.incoll.inproc.crossref}
   " \cite{" * crossref * "}" *
 }
 
+FUNCTION {format.journal}
+{
+  "{\em\protect\itshape\JournalTitle{" journal * "}}" *
+}
+
+%% patent hacked in here, mildy inspired by the achemso.bst style
+%% total hack move...THM
+
+FUNCTION {patent}
+{
+  output.bibitem
+  format.authors "author" output.check
+  new.block
+  format.title "title" output.check
+  new.block
+  note output
+  new.block
+  number output
+  new.block
+  format.date "year" output.check
+  fin.entry
+}
+
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
@@ -575,12 +606,13 @@ FUNCTION {article}
   format.title "title" output.check
   new.block
   crossref missing$
-    { journal emphasize "journal" output.check
-      format.vol.num.pages output
+    % { journal emphasize "journal" output.check
+    { format.journal emphasize "journal" output.check
+      % format.vol.num.pages output
       format.date "year" output.check
     }
     { format.article.crossref output.nonnull
-      format.pages output
+      % format.pages output
     }
   if$
   new.block

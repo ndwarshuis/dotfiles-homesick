@@ -1,8 +1,8 @@
 [user]
 	name = ndwarshuis
-	email = natedwarshuis@gmail.com
+	email = ndwar@yavin4.ch
 [core]
-	editor = emacs
+	editor = vi 
 [merge]
 	tool = meld
 [diff "exif"]
@@ -13,3 +13,5 @@
     textconv = odt2txt
 [color]
 	ui = true
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret

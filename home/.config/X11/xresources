@@ -50,7 +50,7 @@ Xft.dpi: 96
 
 ! no blinkencursors
 *.cursorBlink:  False
-*.cursorColor:  10
+*.cursorColor:  #30ff30 
 
 *.colorUL:		11
 

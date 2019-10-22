@@ -1,5 +1,17 @@
 #!/bin/sh
 
+# note: there is a constant flame war as to who should start
+# services, xinit or systemd. As of now (Oct 2019) there is no
+# way to make an xorg unit without running it as root (oops) so
+# therefore there is no way for any services that require
+# DISPLAY or XAUTHORITY to start "after" xorg is started. These
+# must be started here...or inside the exec whatever session using
+# its autostart service feature (if available)
+
+# ...additionally, it seems that PATH is not set for systemd --user
+# units either, but it is set here...so start anything requiring PATH
+# after this file as well
+
 userresources="$XDG_CONFIG_HOME/X11/xresources"
 
 if [ -f "$userresources" ]; then
@@ -24,7 +36,7 @@ start_panel() {
 }
 
 start_ui() {
-	conky -d
+	# conky -d
 	compton --config .config/compton.conf -b
 	feh --no-fehbg --bg-fill ~/.local/share/backgrounds/wallpaper.png &
 	xsetroot -cursor_name left_ptr

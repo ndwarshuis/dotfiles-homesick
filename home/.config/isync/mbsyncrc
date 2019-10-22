@@ -73,6 +73,7 @@ PassCmd "secret-tool lookup host imap.gmail.com user natedwarshuis@gmail.com"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 # CertificateFile ~/.local/etc/certs/imap.gmail.com.pem
+# PipelineDepth 1
 
 IMAPStore gmail-remote
 Account gmail
@@ -196,3 +197,49 @@ Group emory
 Channel emory-inbox
 Channel emory-sent
 Channel emory-archive
+
+##
+## test email server
+##
+
+## to eventually be my primary email server
+IMAPAccount yavin4
+Host portnoy4prez.yavin4.ch
+User ndwar@yavin4.ch
+PassCmd "secret-tool lookup host peart4prez.yavin4.ch user ndwar@yavin4.ch"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+PipelineDepth 1
+
+IMAPStore yavin4-remote
+Account yavin4
+
+MailDirStore yavin4-local
+Path /mnt/data/Mail/yavin4/
+Inbox /mnt/data/Mail/yavin4/inbox
+
+Channel yavin4-inbox
+Master :yavin4-remote:"INBOX"
+Slave :yavin4-local:"inbox"
+Create Both
+Expunge Both
+SyncState *
+
+Channel yavin4-sent
+Master :yavin4-remote:"Sent"
+Slave :yavin4-local:"sent"
+Create Both
+Expunge Both
+SyncState *
+
+Channel yavin4-archive
+Master :yavin4-remote:"Archive"
+Slave :yavin4-local:"archive"
+Create Both
+Expunge Both
+SyncState *
+
+Group yavin4
+Channel yavin4-inbox
+Channel yavin4-sent
+Channel yavin4-archive

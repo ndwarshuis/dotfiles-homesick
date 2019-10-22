@@ -6,5 +6,5 @@ After=network.target network-online.target dbus.socket
 Type=oneshot
 ## note, need to use local script in order to make the alias for this work
 # ExecStart=/usr/bin/mbsync -Va 
-ExecStart=%h/.local/bin/mbsync-ndwar
-ExecStartPost=%h/.local/bin/mu-index-emacs-maybe
+ExecStart=%h/.bin/mbsync-ndwar
+ExecStartPost=%h/.bin/mu-index-emacs-maybe

@@ -148,8 +148,14 @@ setopt complete_aliases
 alias grep='grep --color=auto'
 exists colordiff && alias diff=colordiff
 alias sudo='sudo '
-alias hs='history | grep $1'
-exists R && alias R='R --quiet'
+alias hs='history 1 | grep'
+# exists R && alias R='MAKEFLAGS="-j8" R --quiet'
+exists mfsconsole && alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
+
+# taskjuggler
+exists tj3d && alias tj3d="tj3d -c $XDG_CONFIG_HOME/tj3/taskjugglerrc"
+exists tj3webd && alias tj3webd="tj3webd -c $XDG_CONFIG_HOME/tj3/taskjugglerrc"
+exists tj3client && alias tj3client="tj3client -c $XDG_CONFIG_HOME/tj3/taskjugglerrc"
 
 # xdg conformity
 exists arm && alias arm='arm -c "$XDG_CONFIG_HOME"/arm/armrc'
@@ -231,3 +237,20 @@ man() {
     LESS_TERMCAP_us=$'\E[04;38;5;10m' \
     man "$@"
 }
+
+## --------------------------------------------------
+## Other Imports
+## --------------------------------------------------
+# virtualenvwrapper_file=/usr/bin/virtualenvwrapper.sh
+# if [ -f "$virtualenvwrapper_file" ]; then
+#     source "$virtualenvwrapper_file"
+# fi
+
+## --------------------------------------------------
+## Python
+## --------------------------------------------------
+if command -v pyenv 1>/dev/null 2>&1; then
+    # take out PATH since this should alredy be set in pam_environ
+    eval "$(pyenv init - | sed '/PATH/d' -)"
+    eval "$(pyenv virtualenv-init - | sed '/PATH/d' -)"
+fi
